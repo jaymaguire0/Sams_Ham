@@ -30,9 +30,3 @@ jobs:
           name: UpdateProjectInfo
           path: dist/UpdateProjectInfo.exe
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: dist/UpdateProjectInfo.exe
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
