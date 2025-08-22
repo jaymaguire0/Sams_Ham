@@ -21,12 +21,18 @@ jobs:
       - name: Install dependencies
         run: py -m pip install --upgrade pip openpyxl pyinstaller
 
-      - name: Build exe with PyInstaller
+      - name: Build exe with PyInstaller (V2)
         run: py -m PyInstaller --onefile --noconsole UpdateProjectInfo.py
+
+      - name: Build exe with PyInstaller (V3)
+        run: py -m PyInstaller --onefile --noconsole UpdateProjectInfo_V3.py
 
       - name: Upload exe as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: UpdateProjectInfo
-          path: dist/UpdateProjectInfo.exe
+          name: UpdateProjectInfo_EXEs
+          path: |
+            dist/UpdateProjectInfo.exe
+            dist/UpdateProjectInfo_V3.exe
+
 
